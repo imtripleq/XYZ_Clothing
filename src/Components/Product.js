@@ -21,6 +21,12 @@ const useStyles = makeStyles({
     flexDirection: "column",
     alignItems: "center",
   },
+  relatedContainer: {
+    margin: "40px 0px",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
 });
 
 const Product = ({
@@ -81,7 +87,8 @@ const Product = ({
         <Button onClick={handleBack}>BACK</Button>
       </Box>
 
-      <Box>
+      <Box className={classes.relatedContainer}>
+        <Typography variant="h5">Related Products</Typography>
         <Table>
           <TableBody>
             {relatedProducts.map((item) => {
