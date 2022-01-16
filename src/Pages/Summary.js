@@ -59,7 +59,11 @@ const Summary = () => {
         </Box>
         <Box>
           {detailLoading ? (
-            <Product details={detail} handleBack={handleBack} />
+            <Product
+              details={detail}
+              handleBack={handleBack}
+              products={products}
+            />
           ) : null}
         </Box>
       </Box>

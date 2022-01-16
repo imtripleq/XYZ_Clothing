@@ -3,13 +3,16 @@ import {
   Button,
   Card,
   CardContent,
+  Table,
+  TableBody,
   TextField,
   Typography,
 } from "@mui/material";
 import React, { useState } from "react";
+import TableProducts from "./TableProducts";
 
-const Product = ({ details, handleBack }) => {
-  const { id, name, price, description } = details;
+const Product = ({ details, handleBack, products }) => {
+  const { id, name, price, description, relatedProducts } = details;
 
   const [edit, setEdit] = useState(true);
 
@@ -52,6 +55,16 @@ const Product = ({ details, handleBack }) => {
         </Card>
         <Button onClick={handleEdit}>{edit ? "EDIT" : "DONE"}</Button>
         <Button onClick={handleBack}>BACK</Button>
+      </Box>
+
+      <Box>
+        <Table>
+          <TableBody>
+            {relatedProducts.map((item) => {
+              return <TableProducts product={products[item]} />;
+            })}
+          </TableBody>
+        </Table>
       </Box>
     </>
   );
