@@ -61,7 +61,7 @@ const Product = ({ details, handleBack, products }) => {
         <Table>
           <TableBody>
             {relatedProducts.map((item) => {
-              return <TableProducts product={products[item]} />;
+              return <TableProducts product={products[item]} key={item} />;
             })}
           </TableBody>
         </Table>

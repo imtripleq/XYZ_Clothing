@@ -8,6 +8,7 @@ const Summary = () => {
   const [loading, setLoading] = useState(false);
   const [detail, setDetail] = useState([]);
   const [detailLoading, setDetailLoading] = useState(false);
+  const [currencyOption, setCurrencyOption] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -18,7 +19,17 @@ const Summary = () => {
       console.log(data);
       setLoading(true);
     };
+
+    const fetchRates = async () => {
+      const res = await fetch("http://localhost:4000/rates");
+      const data = await res.json();
+
+      setCurrencyOption(data);
+      console.log(data);
+    };
+
     fetchData();
+    fetchRates();
   }, []);
 
   const handleDetails = async (id) => {
@@ -39,7 +50,19 @@ const Summary = () => {
   return (
     <>
       <Box>
-        <Typography variant="h1">XYZ Clothing</Typography>
+        <Box>
+          <Typography variant="h1">XYZ Clothing</Typography>
+        </Box>
+        <Box>
+          <Typography>Currency</Typography>
+          <select>
+            {loading
+              ? currencyOption.map((item) => {
+                  return <option value={item.base}>{item.base}</option>;
+                })
+              : null}
+          </select>
+        </Box>
         <Box>
           <Table>
             <TableBody>
