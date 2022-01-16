@@ -8,8 +8,19 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 import React, { useState } from "react";
 import TableProducts from "./TableProducts";
+
+const useStyles = makeStyles({
+  page: { display: "flex", flexDirection: "column", alignItems: "center" },
+  cardContainer: { minWidth: "300px", maxWidth: "500px" },
+  productContainer: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+});
 
 const Product = ({
   details,
@@ -20,6 +31,7 @@ const Product = ({
   CNY,
   currency,
 }) => {
+  const classes = useStyles();
   const { id, name, price, description, relatedProducts } = details;
 
   const [edit, setEdit] = useState(true);
@@ -30,37 +42,40 @@ const Product = ({
 
   return (
     <>
-      <Box>
-        <Card>
-          <CardContent>
-            <Box
-              sx={{
-                "& .MuiTextField-root": { m: 1, width: "25ch" },
-              }}
-              component="form"
-            >
-              <TextField
-                disabled={edit}
-                id="outlined-read-only-input"
-                label="ID"
-                defaultValue={id}
-              />
-              <TextField
-                disabled={edit}
-                id="outlined-read-only-input"
-                label="Name"
-                defaultValue={name}
-              />
-              <TextField
-                disabled={edit}
-                id="outlined-read-only-input"
-                label="Price"
-                defaultValue={price.amount + price.base}
-              />
-              <Typography>Description: {description}</Typography>
-            </Box>
-          </CardContent>
-        </Card>
+      <Box className={classes.page}>
+        <Box className={classes.cardContainer}>
+          <Card>
+            <CardContent>
+              <Box
+                sx={{
+                  "& .MuiTextField-root": { m: 1, width: "25ch" },
+                }}
+                component="form"
+                className={classes.productContainer}
+              >
+                <TextField
+                  disabled={edit}
+                  id="outlined-read-only-input"
+                  label="ID"
+                  defaultValue={id}
+                />
+                <TextField
+                  disabled={edit}
+                  id="outlined-read-only-input"
+                  label="Name"
+                  defaultValue={name}
+                />
+                <TextField
+                  disabled={edit}
+                  id="outlined-read-only-input"
+                  label="Price"
+                  defaultValue={price.amount + price.base}
+                />
+                <Typography>Description: {description}</Typography>
+              </Box>
+            </CardContent>
+          </Card>
+        </Box>
         <Button onClick={handleEdit}>{edit ? "EDIT" : "DONE"}</Button>
         <Button onClick={handleBack}>BACK</Button>
       </Box>

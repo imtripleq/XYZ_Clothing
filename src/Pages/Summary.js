@@ -5,11 +5,15 @@ import Product from "../Components/Product";
 import TableProducts from "../Components/TableProducts";
 
 const useStyles = makeStyles({
-  page: { display: "flex", flexDirection: "column" },
+  page: { display: "flex", flexDirection: "column", alignItems: "center" },
+
   titleContainer: {
     display: "flex",
     margin: "auto",
   },
+  currencyContainer: { display: "flex", margin: "20px" },
+  currencyTitle: { margin: "0px 20px" },
+  tableContainer: { maxWidth: "800px", minWidth: "500px" },
 });
 
 const Summary = () => {
@@ -70,17 +74,23 @@ const Summary = () => {
         <Box className={classes.titleContainer}>
           <Typography variant="h1">XYZ Clothing</Typography>
         </Box>
-        <Box>
-          {loading ? <Typography>Currency</Typography> : null}
+        <Box className={classes.currencyContainer}>
+          <Box className={classes.currencyTitle}>
+            {loading ? <Typography>Currency</Typography> : null}
+          </Box>
           {loading ? (
             <select onChange={(e) => setCurrency(e.target.value)}>
               {currencyOption.map((item) => {
-                return <option value={item.base}>{item.base}</option>;
+                return (
+                  <option value={item.base} key={item.base}>
+                    {item.base}
+                  </option>
+                );
               })}
             </select>
           ) : null}
         </Box>
-        <Box>
+        <Box className={classes.tableContainer}>
           <Table>
             <TableBody>
               {loading
