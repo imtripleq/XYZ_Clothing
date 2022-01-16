@@ -54,14 +54,14 @@ const Summary = () => {
           <Typography variant="h1">XYZ Clothing</Typography>
         </Box>
         <Box>
-          <Typography>Currency</Typography>
-          <select>
-            {loading
-              ? currencyOption.map((item) => {
-                  return <option value={item.base}>{item.base}</option>;
-                })
-              : null}
-          </select>
+          {loading ? <Typography>Currency</Typography> : null}
+          {loading ? (
+            <select>
+              {currencyOption.map((item) => {
+                return <option value={item.base}>{item.base}</option>;
+              })}
+            </select>
+          ) : null}
         </Box>
         <Box>
           <Table>
