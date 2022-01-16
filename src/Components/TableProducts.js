@@ -2,7 +2,7 @@ import { KeyboardArrowRightOutlined } from "@mui/icons-material";
 import { IconButton, TableCell, TableRow } from "@mui/material";
 import React from "react";
 
-const TableProducts = ({ product }) => {
+const TableProducts = ({ product, handleDetails }) => {
   const { id, name, price } = product;
   return (
     <>
@@ -16,7 +16,7 @@ const TableProducts = ({ product }) => {
           {price.base}
         </TableCell>
         <TableCell>
-          <IconButton>
+          <IconButton onClick={handleDetails}>
             <KeyboardArrowRightOutlined />
           </IconButton>
         </TableCell>

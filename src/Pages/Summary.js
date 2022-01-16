@@ -1,9 +1,13 @@
 import { Box, Table, TableBody, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
+import Product from "../Components/Product";
 import TableProducts from "../Components/TableProducts";
 
 const Summary = () => {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [detail, setDetail] = useState([]);
+  const [detailLoading, setDetailLoading] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -12,9 +16,20 @@ const Summary = () => {
 
       setProducts(data);
       console.log(data);
+      setLoading(true);
     };
     fetchData();
   }, []);
+
+  const handleDetails = async (id) => {
+    const res = await fetch(`http://localhost:4000/products/${id}`);
+    const data = await res.json();
+
+    setDetail(data);
+    console.log(data);
+    setDetailLoading(true);
+  };
+
   return (
     <>
       <Box>
@@ -22,12 +37,21 @@ const Summary = () => {
         <Box>
           <Table>
             <TableBody>
-              {products.map((item) => {
-                return <TableProducts product={item} key={item.id} />;
-              })}
+              {loading
+                ? products.map((item) => {
+                    return (
+                      <TableProducts
+                        product={item}
+                        key={item.id}
+                        handleDetails={() => handleDetails(item.id)}
+                      />
+                    );
+                  })
+                : null}
             </TableBody>
           </Table>
         </Box>
+        <Box>{detailLoading ? <Product details={detail} /> : null}</Box>
       </Box>
     </>
   );
