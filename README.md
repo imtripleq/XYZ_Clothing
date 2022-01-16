@@ -54,7 +54,8 @@ _Note: make sure the port is 4000. Otherwise, the fetch functions won't work_
 - [x] Price
 
 2. Able to see and modify
-   [x] Users is able to see both the products Name and ID
+
+- [x] Users is able to see both the products Name and ID
 
 _Note: Users only be able to edit details within the lifetime of the users interaction with the site._
 
