@@ -28,6 +28,12 @@ const Summary = () => {
     setDetail(data);
     console.log(data);
     setDetailLoading(true);
+    setLoading(false);
+  };
+
+  const handleBack = () => {
+    setLoading(true);
+    setDetailLoading(false);
   };
 
   return (
@@ -51,7 +57,11 @@ const Summary = () => {
             </TableBody>
           </Table>
         </Box>
-        <Box>{detailLoading ? <Product details={detail} /> : null}</Box>
+        <Box>
+          {detailLoading ? (
+            <Product details={detail} handleBack={handleBack} />
+          ) : null}
+        </Box>
       </Box>
     </>
   );
