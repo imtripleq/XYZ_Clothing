@@ -11,7 +11,15 @@ import {
 import React, { useState } from "react";
 import TableProducts from "./TableProducts";
 
-const Product = ({ details, handleBack, products }) => {
+const Product = ({
+  details,
+  handleBack,
+  products,
+  AUD,
+  USD,
+  CNY,
+  currency,
+}) => {
   const { id, name, price, description, relatedProducts } = details;
 
   const [edit, setEdit] = useState(true);
@@ -61,7 +69,16 @@ const Product = ({ details, handleBack, products }) => {
         <Table>
           <TableBody>
             {relatedProducts.map((item) => {
-              return <TableProducts product={products[item]} key={item} />;
+              return (
+                <TableProducts
+                  product={products[item]}
+                  key={item}
+                  currency={currency}
+                  AUD={AUD}
+                  USD={USD}
+                  CNY={CNY}
+                />
+              );
             })}
           </TableBody>
         </Table>

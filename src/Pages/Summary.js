@@ -97,6 +97,10 @@ const Summary = () => {
               details={detail}
               handleBack={handleBack}
               products={products}
+              currency={currency}
+              AUD={AUD}
+              USD={USD}
+              CNY={CNY}
             />
           ) : null}
         </Box>
