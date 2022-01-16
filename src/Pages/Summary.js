@@ -1,7 +1,16 @@
 import { Box, Table, TableBody, Typography } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 import React, { useEffect, useState } from "react";
 import Product from "../Components/Product";
 import TableProducts from "../Components/TableProducts";
+
+const useStyles = makeStyles({
+  page: { display: "flex", flexDirection: "column" },
+  titleContainer: {
+    display: "flex",
+    margin: "auto",
+  },
+});
 
 const Summary = () => {
   const [products, setProducts] = useState([]);
@@ -13,6 +22,7 @@ const Summary = () => {
   const [USD, setUSD] = useState(1);
   const [AUD, setAUD] = useState(1);
   const [CNY, setCNY] = useState(1);
+  const classes = useStyles();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -56,8 +66,8 @@ const Summary = () => {
   console.log(currency);
   return (
     <>
-      <Box>
-        <Box>
+      <Box className={classes.page}>
+        <Box className={classes.titleContainer}>
           <Typography variant="h1">XYZ Clothing</Typography>
         </Box>
         <Box>
