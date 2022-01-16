@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Table, TableBody, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import TableProducts from "../Components/TableProducts";
 
@@ -19,7 +19,15 @@ const Summary = () => {
     <>
       <Box>
         <Typography variant="h1">XYZ Clothing</Typography>
-        <TableProducts />
+        <Box>
+          <Table>
+            <TableBody>
+              {products.map((item) => {
+                return <TableProducts product={item} key={item.id} />;
+              })}
+            </TableBody>
+          </Table>
+        </Box>
       </Box>
     </>
   );
