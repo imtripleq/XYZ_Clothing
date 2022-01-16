@@ -12,6 +12,7 @@ import { makeStyles } from "@mui/styles";
 import React, { useState } from "react";
 import TableProducts from "./TableProducts";
 
+// Styling
 const useStyles = makeStyles({
   page: { display: "flex", flexDirection: "column", alignItems: "center" },
   cardContainer: { minWidth: "300px", maxWidth: "500px" },
@@ -34,8 +35,8 @@ const Product = ({
   const classes = useStyles();
   const { id, name, price, description, relatedProducts } = details;
 
+  // Enable or Disable edit
   const [edit, setEdit] = useState(true);
-
   const handleEdit = () => {
     setEdit(!edit);
   };

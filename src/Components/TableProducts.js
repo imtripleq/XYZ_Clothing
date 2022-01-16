@@ -3,6 +3,7 @@ import { IconButton, TableCell, TableRow } from "@mui/material";
 import React from "react";
 
 const TableProducts = ({ product, handleDetails, currency, AUD, USD, CNY }) => {
+  // Currency check and convert
   const convert = ({ base, amount }) => {
     if (base === "USD") {
       return amount * (USD[currency] ? USD[currency] : 1);

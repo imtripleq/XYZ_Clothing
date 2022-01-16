@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import Product from "../Components/Product";
 import TableProducts from "../Components/TableProducts";
 
+// Styling
 const useStyles = makeStyles({
   page: { display: "flex", flexDirection: "column", alignItems: "center" },
 
@@ -29,21 +30,23 @@ const Summary = () => {
   const classes = useStyles();
 
   useEffect(() => {
+    // Fetch Product details
     const fetchData = async () => {
       const res = await fetch("http://localhost:4000/products");
       const data = await res.json();
 
       setProducts(data);
-      console.log(data);
+
       setLoading(true);
     };
 
+    // Fetch Rates
     const fetchRates = async () => {
       const res = await fetch("http://localhost:4000/rates");
       const data = await res.json();
 
       setCurrencyOption(data);
-      console.log(data);
+
       setAUD(data[0].rates);
       setUSD(data[1].rates);
       setCNY(data[2].rates);
@@ -53,27 +56,30 @@ const Summary = () => {
     fetchRates();
   }, []);
 
+  // Fetch selected id
   const handleDetails = async (id) => {
     const res = await fetch(`http://localhost:4000/products/${id}`);
     const data = await res.json();
 
     setDetail(data);
-    console.log(data);
+
     setDetailLoading(true);
     setLoading(false);
   };
 
+  // Back Button
   const handleBack = () => {
     setLoading(true);
     setDetailLoading(false);
   };
-  console.log(currency);
+
   return (
     <>
       <Box className={classes.page}>
         <Box className={classes.titleContainer}>
           <Typography variant="h1">XYZ Clothing</Typography>
         </Box>
+
         <Box className={classes.currencyContainer}>
           <Box className={classes.currencyTitle}>
             {loading ? <Typography>Currency</Typography> : null}
