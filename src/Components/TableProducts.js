@@ -5,11 +5,11 @@ import React from "react";
 const TableProducts = ({ product, handleDetails, currency, AUD, USD, CNY }) => {
   const convert = ({ base, amount }) => {
     if (base === "USD") {
-      return amount * USD[currency];
+      return amount * (USD[currency] ? USD[currency] : 1);
     } else if (base === "CNY") {
-      return amount * CNY[currency];
+      return amount * (CNY[currency] ? CNY[currency] : 1);
     } else if (base === "AUD") {
-      return amount * AUD[currency];
+      return amount * (AUD[currency] ? AUD[currency] : 1);
     }
   };
 
@@ -22,7 +22,7 @@ const TableProducts = ({ product, handleDetails, currency, AUD, USD, CNY }) => {
         </TableCell>
         <TableCell align="left">{name}</TableCell>
         <TableCell align="right">
-          {convert(price)} {currency}
+          {Math.floor(convert(price))} {currency}
         </TableCell>
         <TableCell>
           <IconButton onClick={handleDetails}>
