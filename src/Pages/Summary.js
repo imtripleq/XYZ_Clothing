@@ -9,6 +9,10 @@ const Summary = () => {
   const [detail, setDetail] = useState([]);
   const [detailLoading, setDetailLoading] = useState(false);
   const [currencyOption, setCurrencyOption] = useState([]);
+  const [currency, setCurrency] = useState("USD");
+  const [USD, setUSD] = useState(1);
+  const [AUD, setAUD] = useState(1);
+  const [CNY, setCNY] = useState(1);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -26,6 +30,9 @@ const Summary = () => {
 
       setCurrencyOption(data);
       console.log(data);
+      setAUD(data[0].rates);
+      setUSD(data[1].rates);
+      setCNY(data[2].rates);
     };
 
     fetchData();
@@ -46,7 +53,7 @@ const Summary = () => {
     setLoading(true);
     setDetailLoading(false);
   };
-
+  console.log(currency);
   return (
     <>
       <Box>
@@ -56,7 +63,7 @@ const Summary = () => {
         <Box>
           {loading ? <Typography>Currency</Typography> : null}
           {loading ? (
-            <select>
+            <select onChange={(e) => setCurrency(e.target.value)}>
               {currencyOption.map((item) => {
                 return <option value={item.base}>{item.base}</option>;
               })}
@@ -73,6 +80,10 @@ const Summary = () => {
                         product={item}
                         key={item.id}
                         handleDetails={() => handleDetails(item.id)}
+                        currency={currency}
+                        AUD={AUD}
+                        USD={USD}
+                        CNY={CNY}
                       />
                     );
                   })
