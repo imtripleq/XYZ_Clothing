@@ -33,18 +33,19 @@ _Note: make sure the port is 4000. Otherwise, the fetch functions won't work_
 
 ### Minimum Viable Product (Required)
 
-1. Users should be able to view a summary of each product in the system
+1. View a summary of each product in the system
 
 - [x] This summary should at a minimum display the products name and price
 
-2. Users should be able to view the full details for an individual product
+2. View the full details for an individual product
 
 - [x] Users need to be able to directly navigate to an individual product
 - [x] Users should be able to view a summary of each related product
 
-3. [x] Users should be able to select the currency in which prices are displayed
+3. Currency Convert
+   [x] Users should be able to select the currency in which prices are displayed
 
-## Bonus Points
+### Bonus Points
 
 1. Users should be able to modify the following fields:
 
@@ -52,15 +53,19 @@ _Note: make sure the port is 4000. Otherwise, the fetch functions won't work_
 - [x] Name
 - [x] Price
 
-2. [x] Users is able to see both the products Name and ID
+2. Able to see and modify
+   [x] Users is able to see both the products Name and ID
 
 _Note: Users only be able to edit details within the lifetime of the users interaction with the site._
 
 ## Credits
 
 This coding challenge is done by Dennis Khor.
+
 @Email: denniskcc@hotmail.com
+
 [LinkedIn](https://www.linkedin.com/in/denniskhor3139/)
+
 [Website](https://denniskcc.netlify.app/)
 
 Thanks **Mudbath Digital** for giving me this opportunity to do this challenge.
