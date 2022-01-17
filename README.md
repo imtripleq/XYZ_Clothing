@@ -29,6 +29,10 @@ Then type:
 
 _Note: make sure the port is 4000. Otherwise, the fetch functions won't work_
 
+Once the server is running, we can run our React by using:
+
+> npm start
+
 ## Features
 
 ### Minimum Viable Product (Required)
