@@ -127,6 +127,7 @@ const Summary = () => {
               AUD={AUD}
               USD={USD}
               CNY={CNY}
+              currencyOption={currencyOption}
             />
           ) : null}
         </Box>

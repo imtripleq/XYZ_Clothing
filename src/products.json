@@ -2,13 +2,15 @@
   "products": [
     {
       "id": 1,
-      "name": "Brown Shoes",
+      "name": "Better Shoes",
       "description": "A brown shirt made from fine cotton.",
       "price": {
         "base": "USD",
-        "amount": 50
+        "amount": "100"
       },
-      "relatedProducts": [2]
+      "relatedProducts": [
+        2
+      ]
     },
     {
       "id": 2,
@@ -18,7 +20,10 @@
         "base": "USD",
         "amount": 30
       },
-      "relatedProducts": [1, 4]
+      "relatedProducts": [
+        1,
+        4
+      ]
     },
     {
       "id": 3,
@@ -28,7 +33,10 @@
         "base": "USD",
         "amount": 25
       },
-      "relatedProducts": [1, 4]
+      "relatedProducts": [
+        1,
+        4
+      ]
     },
     {
       "id": 4,
@@ -38,7 +46,10 @@
         "base": "USD",
         "amount": 20
       },
-      "relatedProducts": [3, 5]
+      "relatedProducts": [
+        3,
+        5
+      ]
     },
     {
       "id": 5,
@@ -48,7 +59,10 @@
         "base": "CNY",
         "amount": 300
       },
-      "relatedProducts": [4, 1]
+      "relatedProducts": [
+        4,
+        1
+      ]
     }
   ],
   "rates": [

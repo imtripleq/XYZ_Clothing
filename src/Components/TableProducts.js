@@ -13,7 +13,6 @@ const TableProducts = ({ product, handleDetails, currency, AUD, USD, CNY }) => {
       return amount * (AUD[currency] ? AUD[currency] : 1);
     }
   };
-
   const { id, name, price } = product;
   return (
     <>
